@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Song Addition | Braxten's Beatz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <h1 class="admin-title">
+                <span class="neon-text">ADMIN</span>
+                <span class="beatz-text">SONG ADDITION</span>
+            </h1>
+            <a href="/" class="back-link">← Back to Home</a>
+        </header>
+
+        <!-- Song Selection/Upload Section -->
+        <section class="admin-section">
+            <h2 class="section-title">SELECT OR UPLOAD SONG</h2>
+            <div class="song-controls">
+                <div class="song-selector">
+                    <label class="admin-label">Choose Existing Song:</label>
+                    <select id="existingSongSelect" class="admin-select">
+                        <option value="">-- Select a song --</option>
+                        {% for song in songs %}
+                        <option value="{{ song.filename }}">{{ song.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="divider">OR</div>
+                <div class="song-upload">
+                    <label class="admin-label">Upload New MP3:</label>
+                    <input type="file" id="songUpload" accept="audio/mp3,audio/mpeg" class="admin-file-input">
+                </div>
+            </div>
+            
+            <!-- Audio Player -->
+            <div class="audio-player-container" id="audioPlayerContainer" style="display: none;">
+                <audio id="audioPlayer" controls class="audio-player">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="audio-info">
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chart Configuration -->
+        <section class="admin-section" id="chartConfigSection" style="display: none;">
+            <h2 class="section-title">CHART CONFIGURATION</h2>
+            <div class="config-grid">
+                <div class="config-item">
+                    <label class="admin-label">Song ID:</label>
+                    <input type="text" id="songId" class="admin-input" placeholder="e.g., song1">
+                </div>
+                <div class="config-item">
+                    <label class="admin-label">Title:</label>
+                    <input type="text" id="chartTitle" class="admin-input" placeholder="Song Title">
+                </div>
+                <div class="config-item">
+                    <label class="admin-label">BPM:</label>
+                    <input type="number" id="chartBpm" class="admin-input" value="120" min="60" max="200">
+                </div>
+                <div class="config-item">
+                    <label class="admin-label">Offset (ms):</label>
+                    <input type="number" id="chartOffset" class="admin-input" value="500" min="0">
+                </div>
+            </div>
+        </section>
+
+        <!-- Note Chart Editor -->
+        <section class="admin-section" id="noteEditorSection" style="display: none;">
+            <h2 class="section-title">NOTE CHART EDITOR</h2>
+            <div class="editor-controls">
+                <button class="admin-btn" id="playPauseBtn">▶ PLAY</button>
+                <button class="admin-btn" id="addNoteBtn">+ ADD NOTE (or click lane)</button>
+                <button class="admin-btn" id="clearNotesBtn">CLEAR ALL</button>
+                <button class="admin-btn" id="undoBtn">UNDO</button>
+            </div>
+            <div class="editor-instructions">
+                <p>💡 <strong>Tip:</strong> Click directly on a lane to add a note at the current playback time (snapped to beat). Use keys 1-4 to add notes to lanes 1-4.</p>
+            </div>
+            
+            <!-- 4-Lane Grid -->
+            <div class="lanes-container">
+                <div class="lanes-grid" id="lanesGrid">
+                    <div class="lane" data-lane="0">
+                        <div class="lane-label">LANE 1</div>
+                        <div class="lane-content" id="lane0"></div>
+                    </div>
+                    <div class="lane" data-lane="1">
+                        <div class="lane-label">LANE 2</div>
+                        <div class="lane-content" id="lane1"></div>
+                    </div>
+                    <div class="lane" data-lane="2">
+                        <div class="lane-label">LANE 3</div>
+                        <div class="lane-content" id="lane2"></div>
+                    </div>
+                    <div class="lane" data-lane="3">
+                        <div class="lane-label">LANE 4</div>
+                        <div class="lane-content" id="lane3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline" id="timeline"></div>
+            </div>
+        </section>
+
+        <!-- Save Section -->
+        <section class="admin-section" id="saveSection" style="display: none;">
+            <h2 class="section-title">SAVE CHART</h2>
+            <div class="save-controls">
+                <button class="admin-btn save-btn" id="saveChartBtn">SAVE CHART</button>
+                <div id="saveStatus" class="save-status"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

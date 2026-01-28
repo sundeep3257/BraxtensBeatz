@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Hero - Braxten's Beatz</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='graphics/Favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/guitar_hero.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <header class="game-header">
+            <h1 class="game-title">
+                <span class="neon-text">GUITAR</span>
+                <span class="beatz-text">HERO</span>
+            </h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="info-label">SONG:</span>
+                    <span class="info-value" id="songTitle">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">SCORE:</span>
+                    <span class="info-value" id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ACCURACY:</span>
+                    <span class="info-value" id="accuracy">100%</span>
+                </div>
+            </div>
+            <a href="/" class="back-link">← Back to Home</a>
+        </header>
+
+        <!-- Game Area -->
+        <div class="game-area">
+            <div class="hit-zone" id="hitZone">
+                <div class="hit-line"></div>
+            </div>
+
+            <div class="lanes-container" id="lanesContainer">
+                <div class="lane lane-0" data-lane="0" id="lane0">
+                    <div class="lane-hit-area" data-lane="0"></div>
+                    <div class="lane-content" id="laneContent0"></div>
+                    <div class="fret-button fret-0" data-lane="0">A</div>
+                </div>
+                <div class="lane lane-1" data-lane="1" id="lane1">
+                    <div class="lane-hit-area" data-lane="1"></div>
+                    <div class="lane-content" id="laneContent1"></div>
+                    <div class="fret-button fret-1" data-lane="1">S</div>
+                </div>
+                <div class="lane lane-2" data-lane="2" id="lane2">
+                    <div class="lane-hit-area" data-lane="2"></div>
+                    <div class="lane-content" id="laneContent2"></div>
+                    <div class="fret-button fret-2" data-lane="2">D</div>
+                </div>
+                <div class="lane lane-3" data-lane="3" id="lane3">
+                    <div class="lane-hit-area" data-lane="3"></div>
+                    <div class="lane-content" id="laneContent3"></div>
+                    <div class="fret-button fret-3" data-lane="3">F</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Info -->
+        <div class="controls-info">
+            <p>Press <span class="key">A</span> <span class="key">S</span> <span class="key">D</span> <span class="key">F</span> or tap the frets</p>
+        </div>
+
+        <!-- Footer Brand -->
+        <div class="game-footer-brand" aria-hidden="true">
+            <span class="neon-text">BRAXTEN'S</span>
+            <span class="beatz-text">BEATZ</span>
+        </div>
+
+        <!-- Start Screen -->
+        <div class="start-screen" id="startScreen">
+            <h2 class="start-title">READY TO ROCK?</h2>
+            <button class="start-game-btn" id="startGameBtn">START</button>
+        </div>
+
+        <!-- End Screen -->
+        <div class="end-screen hidden" id="endScreen">
+            <h2 class="end-title">SHOW OVER</h2>
+            <div class="end-stats">
+                <div class="stat-item">
+                    <span class="stat-label">FINAL SCORE</span>
+                    <span class="stat-value" id="finalScore">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">ACCURACY</span>
+                    <span class="stat-value" id="finalAccuracy">100%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">NOTES HIT</span>
+                    <span class="stat-value" id="notesHit">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">PERFECT</span>
+                    <span class="stat-value" id="perfectCount">0</span>
+                </div>
+            </div>
+            <div class="end-buttons">
+                <button class="end-btn" id="playAgainBtn">PLAY AGAIN</button>
+                <button class="end-btn" id="homeBtn">HOME</button>
+            </div>
+        </div>
+
+        <!-- Audio -->
+        <audio id="gameAudio" preload="auto"></audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/guitar_hero.js') }}"></script>
+    <script>
+        const songId = new URLSearchParams(window.location.search).get('song');
+        if (songId) {
+            initGame(songId);
+        } else {
+            alert('No song selected!');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

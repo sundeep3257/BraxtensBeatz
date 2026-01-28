@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braxten's Beatz - Arcade Music Games</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='graphics/Favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="neon-text">BRAXTEN'<span id="secret-s">S</span></span>
+                <span class="beatz-text">BEATZ</span>
+            </h1>
+            <div class="subtitle">ARCADE MUSIC GAMES</div>
+        </header>
+
+        <!-- Game Selection -->
+        <section class="game-selection">
+            <h2 class="section-title">SELECT YOUR GAME</h2>
+            <div class="game-buttons">
+                <button class="game-btn" data-game="piano-tiles">
+                    <span class="btn-text">PIANO TILES</span>
+                    <span class="btn-glow"></span>
+                </button>
+                <button class="game-btn" data-game="guitar-hero">
+                    <span class="btn-text">GUITAR HERO</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Song Selection (hidden initially) -->
+        <section class="song-selection hidden" id="songSelection">
+            <h2 class="section-title">SELECT YOUR SONG</h2>
+            <div class="song-list" id="songList">
+                {% for song in songs %}
+                <button class="song-btn" data-song="{{ song.filename }}" data-song-name="{{ song.name }}">
+                    <span class="song-name">{{ song.name }}</span>
+                    <span class="btn-glow"></span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Start Game Button (hidden initially) -->
+        <section class="start-section hidden" id="startSection">
+            <div class="selected-info">
+                <div class="info-item">
+                    <span class="info-label">GAME:</span>
+                    <span class="info-value" id="selectedGame">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">SONG:</span>
+                    <span class="info-value" id="selectedSong">-</span>
+                </div>
+            </div>
+            <button class="start-btn" id="startBtn">
+                <span class="btn-text">START GAME</span>
+                <span class="btn-glow"></span>
+            </button>
+        </section>
+
+        <!-- Reset Button -->
+        <button class="reset-btn" id="resetBtn">RESET</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Secret double-click feature
+        document.getElementById('secret-s').addEventListener('dblclick', function() {
+            window.location.href = '/admin/song-addition';
+        });
+    </script>
+</body>
+</html>

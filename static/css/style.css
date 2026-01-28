@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: #0a0a0a;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 255, 0.03) 2px,
+            rgba(0, 255, 255, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 900px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Header Styles */
+.header {
+    margin-bottom: 60px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.title {
+    font-family: 'Orbitron', monospace;
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.neon-text {
+    color: #ff00ff;
+    text-shadow: 
+        0 0 5px rgba(255, 0, 255, 0.5),
+        0 0 10px rgba(255, 0, 255, 0.4),
+        0 0 15px rgba(255, 0, 255, 0.3);
+    animation: neonPulseMagenta 2s ease-in-out infinite alternate;
+}
+
+.beatz-text {
+    color: #00ffff;
+    text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.5),
+        0 0 10px rgba(0, 255, 255, 0.4),
+        0 0 15px rgba(0, 255, 255, 0.3);
+    animation: neonPulseCyan 2s ease-in-out infinite alternate;
+    animation-delay: 0.5s;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    font-weight: 600;
+}
+
+/* Section Styles */
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Game Buttons */
+.game-selection {
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-btn {
+    position: relative;
+    background: transparent;
+    border: 3px solid #ff00ff;
+    color: #ff00ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 25px 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.5),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.game-btn:hover {
+    color: #fff;
+    border-color: #ff00ff;
+    box-shadow: 
+        0 0 30px rgba(255, 0, 255, 0.8),
+        inset 0 0 30px rgba(255, 0, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.game-btn.active {
+    background: rgba(255, 0, 255, 0.2);
+    border-color: #ff00ff;
+    color: #fff;
+    box-shadow: 
+        0 0 40px rgba(255, 0, 255, 1),
+        inset 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.game-btn:hover .btn-glow {
+    width: 300px;
+    height: 300px;
+}
+
+/* Song Selection */
+.song-selection {
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.song-btn {
+    position: relative;
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.4),
+        inset 0 0 15px rgba(0, 255, 255, 0.05);
+}
+
+.song-btn:hover {
+    color: #fff;
+    border-color: #00ffff;
+    box-shadow: 
+        0 0 25px rgba(0, 255, 255, 0.7),
+        inset 0 0 25px rgba(0, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.song-btn.active {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: #00ffff;
+    color: #fff;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.9),
+        inset 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.song-name {
+    position: relative;
+    z-index: 1;
+}
+
+/* Start Section */
+.start-section {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.selected-info {
+    background: rgba(255, 255, 0, 0.1);
+    border: 2px solid #ffff00;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 0 20px rgba(255, 255, 0, 0.4),
+        inset 0 0 20px rgba(255, 255, 0, 0.05);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-label {
+    font-family: 'Orbitron', monospace;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.info-value {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.start-btn {
+    position: relative;
+    background: transparent;
+    border: 4px solid #ffff00;
+    color: #ffff00;
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    padding: 30px 80px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 
+        0 0 30px rgba(255, 255, 0, 0.6),
+        inset 0 0 30px rgba(255, 255, 0, 0.1);
+}
+
+.start-btn:hover {
+    color: #fff;
+    border-color: #ffff00;
+    box-shadow: 
+        0 0 50px rgba(255, 255, 0, 1),
+        inset 0 0 50px rgba(255, 255, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.start-btn:active {
+    transform: scale(0.98);
+}
+
+/* Reset Button */
+.reset-btn {
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 12px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes neonPulseMagenta {
+    from {
+        text-shadow: 
+            0 0 5px rgba(255, 0, 255, 0.5),
+            0 0 10px rgba(255, 0, 255, 0.4),
+            0 0 15px rgba(255, 0, 255, 0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 3px rgba(255, 0, 255, 0.6),
+            0 0 8px rgba(255, 0, 255, 0.5),
+            0 0 12px rgba(255, 0, 255, 0.4),
+            0 0 18px rgba(255, 0, 255, 0.3);
+    }
+}
+
+@keyframes neonPulseCyan {
+    from {
+        text-shadow: 
+            0 0 5px rgba(0, 255, 255, 0.5),
+            0 0 10px rgba(0, 255, 255, 0.4),
+            0 0 15px rgba(0, 255, 255, 0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 3px rgba(0, 255, 255, 0.6),
+            0 0 8px rgba(0, 255, 255, 0.5),
+            0 0 12px rgba(0, 255, 255, 0.4),
+            0 0 18px rgba(0, 255, 255, 0.3);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+    
+    .game-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-btn {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .start-btn {
+        font-size: 1.5rem;
+        padding: 25px 50px;
+    }
+}

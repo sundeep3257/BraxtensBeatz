@@ -1,0 +1,425 @@
+/* Admin Page Styles - Retro Punk Arcade Aesthetic */
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.admin-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.back-link {
+    display: inline-block;
+    color: #00ffff;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border: 2px solid #00ffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.back-link:hover {
+    color: #fff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+.admin-section {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff00ff;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.3),
+        inset 0 0 20px rgba(255, 0, 255, 0.05);
+}
+
+.song-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.song-selector,
+.song-upload {
+    width: 100%;
+    max-width: 500px;
+}
+
+.divider {
+    font-family: 'Orbitron', monospace;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.admin-label {
+    display: block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.admin-select,
+.admin-input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.admin-select:focus,
+.admin-input:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+.admin-file-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.admin-file-input:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+.audio-player-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #ffff00;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.audio-player {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.audio-info {
+    text-align: center;
+}
+
+.time-display {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    letter-spacing: 2px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.config-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.editor-instructions {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(255, 255, 0, 0.1);
+    border: 1px solid rgba(255, 255, 0, 0.3);
+    border-radius: 4px;
+}
+
+.editor-instructions p {
+    font-family: 'Rajdhani', sans-serif;
+    color: #ffff00;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.admin-btn {
+    position: relative;
+    background: transparent;
+    border: 2px solid #ff00ff;
+    color: #ff00ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.admin-btn:hover {
+    color: #fff;
+    border-color: #ff00ff;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+.admin-btn:active {
+    transform: translateY(0);
+}
+
+.save-btn {
+    border-color: #ffff00;
+    color: #ffff00;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+    font-size: 1.2rem;
+    padding: 20px 50px;
+}
+
+.save-btn:hover {
+    border-color: #ffff00;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+}
+
+.lanes-container {
+    margin-bottom: 20px;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 500px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.lanes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    min-width: 800px;
+    position: relative;
+}
+
+.lane {
+    border: 2px solid #00ffff;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.lane-label {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    text-align: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #00ffff;
+    z-index: 10;
+}
+
+.lane-content {
+    padding: 10px;
+    position: relative;
+    flex: 1;
+    cursor: pointer;
+}
+
+.beat-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 255, 255, 0.2);
+    pointer-events: none;
+    z-index: 1;
+    height: 1px;
+}
+
+.note {
+    position: absolute;
+    width: calc(100% - 20px);
+    height: 40px;
+    background: #ff00ff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.note:hover {
+    background: #ff66ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.9);
+    transform: scale(1.05);
+}
+
+.note.selected {
+    background: #ffff00;
+    border-color: #ffff00;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.9);
+}
+
+.playback-indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: #ff00ff;
+    box-shadow: 
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff;
+    z-index: 100;
+    pointer-events: none;
+    transition: top 0.05s linear;
+}
+
+.timeline-container {
+    margin-top: 20px;
+    height: 100px;
+    border: 2px solid #ffff00;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.timeline {
+    height: 100%;
+    position: relative;
+    min-width: 100%;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #ffff00;
+    box-shadow: 0 0 5px #ffff00;
+}
+
+.timeline-marker.beat-marker {
+    width: 1px;
+    background: rgba(255, 255, 0, 0.4);
+    box-shadow: 0 0 2px rgba(255, 255, 0, 0.4);
+    height: 60%;
+    top: 20%;
+}
+
+.timeline-marker::before {
+    content: attr(data-time);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    color: #ffff00;
+    text-shadow: 0 0 5px #ffff00;
+    white-space: nowrap;
+}
+
+.save-controls {
+    text-align: center;
+}
+
+.save-status {
+    margin-top: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    min-height: 30px;
+}
+
+.save-status.success {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.save-status.error {
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-title {
+        font-size: 2rem;
+    }
+    
+    .lanes-grid {
+        grid-template-columns: 1fr;
+        min-width: auto;
+    }
+    
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .editor-controls {
+        flex-direction: column;
+    }
+    
+    .admin-btn {
+        width: 100%;
+    }
+}
